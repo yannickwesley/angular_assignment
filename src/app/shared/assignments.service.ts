@@ -30,7 +30,7 @@ export class AssignmentsService {
       rendu: false,
     },
   ];
-  url = "http://localhost:8010/api/assignments";
+  url = "https://angularassig.herokuapp.com/api/assignments";
   constructor(private loggindService: LoggingService,
   private http:HttpClient) { }
   getAssignments(): Observable <Assignment[]>{
