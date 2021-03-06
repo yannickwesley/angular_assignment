@@ -20,8 +20,9 @@ export class AuthGuard implements CanActivate {
         if (authentifie) {
           console.log("Authorisé");
           return true;
+
         } else {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/login']);
           console.log("non Authorisé");
 
         return false;

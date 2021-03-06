@@ -5,12 +5,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
+   users = [
+     { name:'admin', password:'admin'},
+     { name:'karimou', password:'123456'},
+     {name:'yann',password:'yann'},
+  ]
   loggedIn = false;
   constructor(
     private http:HttpClient
   ) { }
   logIn() {
     this.loggedIn = true;
+
   }
   logOut() {
     this.loggedIn = false;

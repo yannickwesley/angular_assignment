@@ -1,16 +1,44 @@
-<div class="container" >
-  <mat-card *ngIf="assignmentTransmis">
-    <mat-card-title> {{assignmentTransmis.nom}} </mat-card-title>
-    <mat-card-subtitle> {{assignmentTransmis.dateDeRendu | date}} </mat-card-subtitle>
-    <div id="bottom">
-    <mat-checkbox  *ngIf="!assignmentTransmis.rendu" (click)="devoirRendu()">Devoir rendu</mat-checkbox>
-    <button  mat-flat-button color="primary" (click)="onClickEdit()" [disabled]="!loggedIn()">
-      Modifier
-    </button>
 
-    <button mat-flat-button  color="warn" (click)="supprAssignment()">
-      Suprimer
-    </button>
-  </div>
-  </mat-card>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col">
+<br><br>
+<div class="spinner-border text-success" role="status" *ngIf="!assignmentTransmis.imageMat">
+  <span class="visually-hidden"></span>
 </div>
+      <!-- Copy the content below until next comment -->
+      <div class="card card-custom bg-white border-white border-0" *ngIf="assignmentTransmis.imageMat">
+        <div class="card-custom-img" style="background-image: url({{assignmentTransmis.imageMat}}); background-size: cover;"></div>
+        <div class="card-custom-avatar">
+          <img class="img-fluid" src="{{assignmentTransmis.imageProf}}" alt="Avatar" />
+        </div>
+        <div class="card-body" style="overflow-y: auto">
+          <h4 class="card-title">Détails</h4>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item intitule">Nom de l'élève : {{assignmentTransmis.nomEleve}}</li>
+            <li class="list-group-item intitule"*ngIf="assignmentTransmis.note">Note : {{assignmentTransmis.note}} / 20</li>
+            <li class="list-group-item intitule" *ngIf="assignmentTransmis.remarques">Remarques : {{assignmentTransmis.remarques}}</li>
+            <li class="list-group-item intitule" *ngIf="assignmentTransmis.dateDeRendu">Rendu le : {{assignmentTransmis.dateDeRendu | date}}</li>
+
+          </ul>
+        </div>
+        <div class="card-footer" style="background: inherit; border-color: inherit;">
+          <button class="btn btn-primary btn-lg marge"   (click)="onClickEdit()">
+            Modifier
+          </button>
+
+          <button class="btn btn-danger btn-lg marge"  (click)="supprAssignment()">
+            Suprimer
+          </button>
+        </div>
+      </div>
+
+
+
+
+</div>
+
+
+
+
+

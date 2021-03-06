@@ -1,9 +1,44 @@
-<div class="container" *ngIf="assignment">
+<!-- <div class="container" *ngIf="assignment">
   <h1>Edition de l'assignment {{assignment.nom}}</h1>
   <form ngForm class="form">
     <mat-form-field>
       <input matInput placeholder="Edition du nom" [(ngModel)]="nomassignment" name="assignment-name">
     </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input matInput placeholder="Last name, First name" [(ngModel)]="nomDevoir" formControlName="firstCtrl" required>
+      <mat-label>Auteur du devoir</mat-label>
+      <input matInput placeholder="Entrez votre nom & prenom" [(ngModel)]="nomE" name="nom"
+         required>
+
+    </mat-form-field>
+    <mat-form-field appearance="fill" >
+      <mat-label>Matieres</mat-label>
+      <mat-select [(ngModel)]="nomP" [ngModelOptions]="{standalone: true}">
+        <mat-option *ngFor="let food of foods"  name="nomP"  selected [value]=" food.nomP"  required>
+          {{ food.matiere }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field  appearance="outline">
+      <mat-label>Date de rendu</mat-label>
+
+      <input matInput [matDatepicker]="datepicker" placeholder="Date de Rendu" [(ngModel)]="dateDeRendu" name="date" required>
+
+      <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+      <mat-datepicker #datepicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Note</mat-label>
+      <input matInput type="number" placeholder="entrer la note" [(ngModel)]="note"    name="note" required>
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <span matSuffix>/20</span>
+    </mat-form-field>
+  <mat-form-field appearance="fill">
+   <mat-label>Remarque</mat-label>
+   <textarea matInput name="Remarque"  [(ngModel)]="remarques"></textarea>
+ </mat-form-field>
+
+ {{ remarques }}
     <mat-form-field>
       <input matInput [matDatepicker]="picker" placeholder="Edition de la date" [(ngModel)]="dateDeRendu" name="date">
       <mat-datepicker-toggle matSuffix [for]="picker">
@@ -14,4 +49,106 @@
       Sauver
     </button>
   </form>
-</div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <mat-horizontal-stepper linear #stepper id="form">
+    <mat-step [stepControl]="firstFormGroup" >
+        <ng-template matStepLabel>Fill out your name</ng-template>
+        <form [formGroup]="firstFormGroup">
+          <!-- <mat-form-field id="first" appearance="outline">
+          <input matInput placeholder="Last name, First name" [(ngModel)]="nomDevoir" formControlName="firstCtrl" required>
+          <mat-label>Auteur du devoir</mat-label>
+          <input matInput  placeholder="Entrez votre nom & prenom" [(ngModel)]="nomE" name="nom" formControlName="firstCtrl"
+             required>
+             <mat-error>This field is required</mat-error>
+
+        </mat-form-field> -->
+        <mat-form-field id="first" appearance="outline">
+          <!-- <input matInput placeholder="Last name, First name" [(ngModel)]="nomDevoir" formControlName="firstCtrl" required> -->
+          <mat-label>Auteur du devoir</mat-label>
+          <input matInput placeholder="Entrez votre nom & prenom" [(ngModel)]="nomE" name="nom" formControlName="firstCtrl"
+             required>
+             <mat-error>This field is required</mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field id="first" appearance="fill" >
+          <mat-label>Matieres</mat-label>
+          <mat-select [(ngModel)]="nomP" [ngModelOptions]="{standalone: true}" >
+            <mat-option *ngFor="let food of foods"  name="nomP"  selected [value]=" food.nomP"  required>
+              {{ food.matiere }}
+            </mat-option>
+
+          </mat-select>
+
+        </mat-form-field>
+        <!-- </mat-form-field>
+          <mat-form-field id="second" appearance="outline" >
+          <mat-select  [(ngModel)]="nomP" [ngModelOptions]="{standalone: true}" [placeholder]="nomP">
+
+            <mat-option *ngFor="let food of foods"  name="nomP"   [value]=" food.nomP" required>
+              {{ food.matiere }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" >
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill out your address</ng-template>
+        <!-- <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                 required>
+        </mat-form-field> -->
+
+        <mat-form-field id="first" appearance="outline">
+          <mat-label>Date de rendu</mat-label>
+
+          <input matInput [matDatepicker]="datepicker" placeholder="Date de Rendu" [(ngModel)]="dateDeRendu" name="date" formControlName="secondCtrl" required>
+
+          <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+          <mat-datepicker #datepicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field id="first" appearance="outline">
+          <mat-label>Note</mat-label>
+          <input matInput type="number"  [(ngModel)]="note"  [ngModelOptions]="{standalone: true}" placeholder="entrer la note"   name="note" required>
+          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+          <span matSuffix>/20</span>
+        </mat-form-field>
+        <mat-form-field  id="first" appearance="fill">
+          <mat-label>Remarque</mat-label>
+          <textarea matInput name="Remarque"  [ngModelOptions]="{standalone: true}" [(ngModel)]="remarques" required></textarea>
+        </mat-form-field>
+        <div>
+
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-stroked-button color="primary" (click)="onSaveAssignment()">
+          Ajouter un devoir
+        </button>    </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+  </div>

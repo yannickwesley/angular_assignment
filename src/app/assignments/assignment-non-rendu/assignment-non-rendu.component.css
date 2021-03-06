@@ -30,8 +30,6 @@
   width: 300px;
   height: 340px;
   background: rgb(205, 236, 240);
-  /*linear-gradient(170deg, #B4EC51 0%, #429321 100%);
-  linear-gradient(170deg, #C86DD7 0%, #3023AE 100%)*/
   transition-property: background;
   transition-duration: 1s;
   transition-timing-function: linear;
@@ -50,12 +48,12 @@ a:hover{
 
   background: rgb(122, 146, 150);
 
+
 }
 .marge{
   margin-right: 30px;
   margin-left: 30px;
   margin-top: 15px;
-
 }
 .float{
 	position:fixed;
@@ -76,7 +74,7 @@ a:hover{
 }
 .taille {
   width: 300px;
-  height: 140px;
+  height: 150px;
   size: cover;
 }
 

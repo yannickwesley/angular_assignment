@@ -8,18 +8,39 @@ import { AuthService } from './shared/auth.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  titre = 'Apllication de gestion des devoirs à rendre';
+  titre = 'Apllication de Gestion des Devoirs';
+  Rendu = true;
+  NonRendu = false;
+  stat = false;
+
   constructor(
-    private router: Router,
+    private routes: Router,
     private authService:AuthService
   ) { }
-  login() {
-    if (!this.authService.loggedIn) {
-      this.authService.logIn();
-    }
-    else {
-      this.authService.logOut();
-      this.router.navigate['/home'];
-    }
+
+
+
+  DevoirRendu() {
+    this.Rendu = true;
+    this.NonRendu = false;
+    this.stat = false;
+    this.routes.navigate(['/home']);
+
   }
-}
+  DevoirNonRendu() {
+    this.Rendu = false;
+    this.NonRendu = true;
+    this.stat = false;
+
+    this.routes.navigate(['/noreturn']);
+
+  }
+  Statistique() {
+    this.Rendu = false;
+    this.NonRendu = false;
+    this.stat = true;
+    this.routes.navigate(['statistic'])
+  }
+
+  }
+

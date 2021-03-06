@@ -4,4 +4,11 @@ export class Assignment{
   nom: String;
   dateDeRendu: Date;
   rendu?: boolean;
+  nomEleve: String;
+  matiere: String;
+  imageMat?: String;
+  imageProf?: String;
+  note?: Number;
+  remarques?: String;
+
 }

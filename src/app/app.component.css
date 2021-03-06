@@ -1,0 +1,43 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+.fin{
+  margin-bottom: -16px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+
+}
+.marge{
+  margin: 30px;
+  color:white;
+}
+.boutton{
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-bottom: -17px;
+
+
+}
+.mnbtn{
+  background-color: rgb(90, 124, 175);
+  color: white;
+  border: 2px solid #edf3ed;
+  transition-duration: 0.4s;
+
+}
+.btnselect{
+  background-color: rgb(41, 90, 163);
+  color: white;
+  border: 2px solid #edf3ed;
+
+
+
+}
+.mnbtn:hover{
+  background-color:  rgb(41, 90, 163);
+  color: white;
+}
+

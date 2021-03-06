@@ -1,0 +1,22 @@
+
+.taille {
+  width: 430px;
+  height: 150px;
+
+  size: cover;
+}
+.marge{
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-top: 40px;
+  margin-bottom: 15px;
+
+}
+.intitule{
+  font-size: 20px;
+}
+.cardstyle{
+  background:linear-gradient(170deg, #B4EC51 0%, #429321 100%);
+   /*linear-gradient(170deg, #B4EC51 0%, #429321 100%);
+  linear-gradient(170deg, #C86DD7 0%, #3023AE 100%)*/;
+}

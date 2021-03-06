@@ -18,25 +18,23 @@
     </div> -->
     <div class="row justify-content-md-center">
       <div>
-         <!-- <button mat-flat-button color="primary" class="ajouterBtn" (click)="peuplerBase()">
-          Peupler la base
-        </button> -->
+
         <br><br>
       <div class="spinner-border text-success" role="status" *ngIf="load">
         <span class="visually-hidden"></span>
       </div>
     </div>
+
     <mat-list *ngFor="let a of pageslice">
         <div class="col marge">
-          <h3 mat-subheader >Date de rendu : {{a.dateDeRendu | date}} </h3>
-
+          <br>
 
           <a routerLink="/assignment/{{a.id}}" class="cont-card" >
             <mat-card class="example-card">
               <mat-card-header>
                 <div mat-card-avatar class="example-header-image" style="background-image: url({{a.imageProf}}); background-size: cover; margin-bottom: 7px;"></div>
                 <mat-card-title>{{a.nom}}</mat-card-title>
-                <!-- <mat-card-subtitle>{{a.dateDeRendu | date}}</mat-card-subtitle> -->
+                <mat-card-subtitle>{{a.dateDeRendu | date}}</mat-card-subtitle>
               </mat-card-header>
               <img mat-card-image src={{a.imageMat}} class="taille" alt="">
               <mat-card-content >

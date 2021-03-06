@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row justify-content-md-center" >
+
+    <div *ngFor="let donnee of donnees">
+      <div class="col marge">
+        <div class="card" style="width: 27rem;">
+          <img class="card-img-top taille" src=" {{donnee.imagemat}} " alt="Card image cap">
+          <div class="card-body" style="overflow-y: auto">
+            <h3 class="card-title text-center"> {{donnee.matiere}} </h3>
+            <div class="row ">
+              <div class="col">
+                <p class="intitule text-center">Rendu</p>
+                <h4><p class="text-center">{{donnee.nbreRenduParMat}}</p></h4> </div>
+              <div class="col">
+                <p class="intitule text-center">Non Rendu</p>
+                <h4><p class="text-center">{{donnee.nbreNonRenduParMat}} </p></h4></div>
+            </div>
+            <hr>
+            <div class="row ">
+              <div class="col">
+                <p class="intitule text-center">Personnes ayant la moyenne</p>
+                <h4><p class="text-center">{{donnee.nbreMoyenneParMat}}</p></h4> </div>
+              <div class="col">
+                <p class="intitule text-center">Personnes n'ayant pas la moyenne</p>
+                <h4><p class="text-center">{{donnee.nbreNoMoyenneParMat}} </p></h4></div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <div class="col">
+      <br><br><br>
+       <div class="spinner-border text-success" role="status" *ngIf="!possible">
+        <span class="visually-hidden"></span>
+      </div>
+
+
+
+
+
+    </div> -->
+  </div>
+</div>

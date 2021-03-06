@@ -1,41 +1,33 @@
-import {  Component, OnInit } from '@angular/core';
-import { Assignment } from './assignment.model';
-import {AssignmentsService} from '../shared/assignments.service'
+import { Component, OnInit } from '@angular/core';
+import { AssignmentsService } from 'src/app/shared/assignments.service';
+import { Assignment } from '../assignment.model';
 import {PageEvent} from '@angular/material/paginator'
 
-@Component({
-  selector: 'app-assignments',
-  templateUrl: './assignments.component.html',
-  styleUrls: ['./assignments.component.css']
-})
-export class AssignmentsComponent implements OnInit {
 
+@Component({
+  selector: 'app-assignment-non-rendu',
+  templateUrl: './assignment-non-rendu.component.html',
+  styleUrls: ['./assignment-non-rendu.component.css']
+})
+export class AssignmentNonRenduComponent implements OnInit {
   nomDevoir = "";
   dateDeRendu = null;
   assignementSelectionne: Assignment;
-  formVisible = false;
-  load = true;
-
   assignments = [];
   pageslice = [];
   length = this.assignments.length;
-
+  load = true;
   pageSize = 12;
   pageSizeOptions: number[] = [3, 6, 9, 12];
+
   constructor(
     private assignmentService: AssignmentsService
-  ) {
-
-  }
+  ) { }
 
   ngOnInit(): void {
     this.getAssignments();
-    this.getSliceAssignments()
-    //this.pageslice=this.assignments.slice(0,3)
-
-
+    this.getSliceAssignments();
   }
-
   onSubmit() {
     let newAssignment = new Assignment();
     newAssignment.nom = this.nomDevoir;
@@ -62,7 +54,7 @@ export class AssignmentsComponent implements OnInit {
     this.assignmentService.getAssignments().subscribe((assignments) => {
       //(this.assignments = assignments),
       assignments.forEach(a => {
-        if (a.rendu == true) {
+        if (a.rendu == false) {
           this.assignments.push(a)
         }
       });
@@ -73,12 +65,12 @@ export class AssignmentsComponent implements OnInit {
       //(this.pageslice = assignments.slice(0, 3))
       console.log(),
     assignments.forEach(a => {
-      if (a.rendu == true) {
+      if (a.rendu == false) {
         this.pageslice.push(a)
       }
     });
-      this.pageslice = this.pageslice.slice(0, 12)
-      this.load =false;
+      this.pageslice = this.pageslice.slice(0, 12);
+      this.load = false;
     });
   }
   chunk(arr, chunkSize) {
@@ -102,6 +94,5 @@ export class AssignmentsComponent implements OnInit {
 
 
   }
-
 
 }

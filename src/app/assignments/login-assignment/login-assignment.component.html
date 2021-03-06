@@ -1,0 +1,18 @@
+<div class="container fond" *ngIf="!connecte" >
+  <h1>Se connecter </h1>
+  <form ngForm class="form">
+    <mat-form-field>
+      <input matInput placeholder="Nom de l'utilisateur" [(ngModel)]="userName" name="user-name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Mot de passe" [(ngModel)]="motDePasse" name="password">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="login()">
+      enregistrer
+    </button>
+  </form>
+</div>
+
+<button *ngIf="connecte" mat-raised-button color="warn" (click)="deconnecter()">
+  se deconnecter
+</button>
