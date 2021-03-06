@@ -1,0 +1,25 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col alert alert-primary " style="background-color:#1e3d59 ;">
+       <h2><p class="text-center marge">{{titre}}</p></h2>
+       <a  class="float1"  (click)="deco()">
+        <i class="fa fa-power-off my-float"></i>
+        </a>
+       <div class=" row  fin">
+         <div class="col boutton">
+          <button type="button" class=" btn-lg btn-block " (click)="DevoirRendu()" [ngClass]="Rendu ?'btnselect':'mnbtn'">Devoir Rendu</button>
+         </div>
+         <div class="col boutton">
+          <button type="button" class=" btn-lg btn-block" (click)="DevoirNonRendu()" [ngClass]="NonRendu ?'btnselect':'mnbtn'" >Devoir Non Rendu</button>
+
+         </div>
+         <div class="col boutton">
+           <button type="button" class="  btn-lg btn-block mnbtn" (click)="Statistique()" [ngClass]="stat ?'btnselect':'mnbtn'">Statistiques</button></div>
+       </div>
+
+    </div>
+
+  </div>
+
+</div>

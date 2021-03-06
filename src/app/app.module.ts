@@ -34,19 +34,20 @@ import { AuthGuard } from './shared/auth.guard';
 import { LoginAssignmentComponent } from './assignments/login-assignment/login-assignment.component';
 import { AssignmentNonRenduComponent } from './assignments/assignment-non-rendu/assignment-non-rendu.component';
 import { StatistiquesComponent } from './assignments/statistiques/statistiques.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
-  { path: '', component: AssignmentsComponent },
-  {path: 'login', component: LoginAssignmentComponent},
-  { path: 'home', component: AssignmentsComponent },
-  { path: 'noreturn', component: AssignmentNonRenduComponent },
-  { path: 'statistic', component: StatistiquesComponent },
+  { path: '', component: LoginAssignmentComponent },
+  {path: 'login', component: LoginAssignmentComponent, },
+  { path: 'home', component: AssignmentsComponent, canActivate:[AuthGuard] },
+  { path: 'noreturn', component: AssignmentNonRenduComponent, canActivate:[AuthGuard] },
+  { path: 'statistic', component: StatistiquesComponent, canActivate:[AuthGuard] },
 
 
-  { path: 'add', component: AddAssignmentComponent },
-  { path: 'assignment/:id', component: AssignmentDetailComponent  },
+  { path: 'add', component: AddAssignmentComponent, canActivate:[AuthGuard] },
+  { path: 'assignment/:id', component: AssignmentDetailComponent, canActivate:[AuthGuard]  },
 
-  { path: 'assignment/:id/edit', component: EditAssignmentComponent, canActivate:[AuthGuard] },
+  { path: 'assignment/:id/edit', component: EditAssignmentComponent, canActivate:[AuthGuard]},
 
 ];
 
@@ -60,7 +61,8 @@ const routes: Routes = [
     EditAssignmentComponent,
     LoginAssignmentComponent,
     AssignmentNonRenduComponent,
-    StatistiquesComponent
+    StatistiquesComponent,
+    HeaderComponent
 
   ],
   imports: [

@@ -15,6 +15,7 @@ export class AssignmentDetailComponent implements OnInit {
   @Output() AssignmentSuppr = new EventEmitter<Assignment>();
 
 
+
   constructor(private assignmentService: AssignmentsService,
     private route: ActivatedRoute,
     private router: Router,

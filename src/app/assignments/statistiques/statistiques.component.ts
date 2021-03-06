@@ -15,7 +15,7 @@ import { timeout } from 'rxjs/operators';
 })
 export class StatistiquesComponent implements OnInit {
   private chart: am4charts.XYChart;
-  possible = false;
+
   donnees: MesStats[] = [];
   finaldata: MesStats[] = [];
   cpt: number[] = [];
@@ -24,8 +24,8 @@ export class StatistiquesComponent implements OnInit {
   nbreTw = 0;
   nbreAnalyse = 0;
   nbreGrails = 0;
-  assignments: Assignment[] = []
-  object:Object={}
+  assignments: Assignment[] = [];
+  load = true;
 
   matieres: String[] = ['oracle', 'De Base de données à Big Data', 'Techno Web', 'Analyse', 'Grails'];
     constructor(@Inject(PLATFORM_ID) private platformId, private zone: NgZone,private assignmentService: AssignmentsService) { }
@@ -184,7 +184,8 @@ chart.cursor.events.on("cursorpositionchanged", function (event) {
   getStatAssignments() {
     for (let index = 0; index < this.matieres.length; index++) {
 
-        this.assignmentService.getAssignments().subscribe((assignments) => {
+      this.assignmentService.getAssignments().subscribe((assignments) => {
+        this.load = true;
           //(this.assignments = assignments),
           let i = 0;
           let nbreRendu = 0;
@@ -218,16 +219,16 @@ chart.cursor.events.on("cursorpositionchanged", function (event) {
           newstat.nbreNoMoyenneParMat = nbreRendu - i;
           newstat.nbreMoyenneParMat = i;
           this.donnees.push(newstat);
+          this.load = false;
 
 
 
 
 
           });
-     // Object.assign(this.finaldata, this.donnees);
-          //console.log(this.donnees)
+
     }
-    this.possible=true
+
 
 
    // console.log("cptmat",this.cpt);

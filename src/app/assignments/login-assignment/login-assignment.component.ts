@@ -12,8 +12,11 @@ import { Connection } from '../Connection.model';
 export class LoginAssignmentComponent implements OnInit {
   userName = '';
   motDePasse = '';
+  id = '';
+  show = 'false';
+
   connecte = false;
-  message = 'non connecté';
+
   Connection:Connection[]
 
   constructor(   private routes: Router,
@@ -22,6 +25,39 @@ export class LoginAssignmentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.id = localStorage.getItem("id");
+    this.userName = localStorage.getItem("login");
+    this.motDePasse = localStorage.getItem("password");
+
+    localStorage.setItem("login", this.userName);
+    localStorage.setItem("password", this.motDePasse);
+    this.getConnection();
+  }
+  getConnection() {
+    this.assignment.getConnexions().subscribe(Connection => {this.Connection = Connection,
+      // console.log('juste un test click');
+
+      Connection.forEach(a => {
+
+        console.log('password'+a.email);
+        if (a.email == this.userName && a.password == this.motDePasse) {
+          this.authService.logIn();
+            localStorage.setItem("login",this.userName)
+            localStorage.setItem("password",this.motDePasse)
+          console.log('juste un test click');
+
+          //this.routes.navigate(['/assignment', this.id , 'edit']);
+        }
+        else
+        {
+          console.log('c est faux');
+        }
+
+
+
+      });
+
+    })
   }
   deconnecter() {
 

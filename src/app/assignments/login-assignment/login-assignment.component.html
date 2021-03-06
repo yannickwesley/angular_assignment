@@ -1,18 +1,50 @@
-<div class="container fond" *ngIf="!connecte" >
-  <h1>Se connecter </h1>
-  <form ngForm class="form">
-    <mat-form-field>
-      <input matInput placeholder="Nom de l'utilisateur" [(ngModel)]="userName" name="user-name">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Mot de passe" [(ngModel)]="motDePasse" name="password">
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="login()">
-      enregistrer
-    </button>
-  </form>
-</div>
 
-<button *ngIf="connecte" mat-raised-button color="warn" (click)="deconnecter()">
-  se deconnecter
-</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="background-color: rgb(54, 54, 187);">
+  <mat-card class="container" style="height: 60%;width: 60%;position: relative;top:20%;left: 0%;" >
+
+    <div class="float-left" style="height:107.5%;width: 50%;margin-top:-15px;margin-left:-15px;overflow: hidden;background-image: url(../../../assets/images/xp.jpeg);background-size: cover;background-repeat: no-repeat;">
+    </div>
+      <div class="float-right" style="width: 50%;">
+
+    <div class="container">
+
+    </div>
+    <div class="container fond"  *ngIf="!connecte" >
+      <h1>Se connecter </h1>
+      <form ngForm class="form">
+        <mat-form-field>
+          <input matInput placeholder="Nom de l'utilisateur" [(ngModel)]="userName" name="user-name">
+        </mat-form-field>
+        <mat-form-field style="margin-top: 15px;">
+          <input matInput type="password" placeholder="Mot de passe" [(ngModel)]="motDePasse" name="password">
+        </mat-form-field>
+        <button mat-raised-button color="primary" style="margin-top: 15px;" (click)="login()">
+          Se Connecter
+        </button>
+      </form>
+    </div>
+
+    <button *ngIf="connecte" mat-raised-button color="warn" (click)="deconnecter()">
+      se deconnecter
+    </button>
+    </div>
+
+    </mat-card>
+
+    <script>
+      $('.carousel').carousel({
+      interval: 1000
+    })
+    </script>
+
+</body>
+</html>
+

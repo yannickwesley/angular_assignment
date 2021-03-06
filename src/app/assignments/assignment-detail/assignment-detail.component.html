@@ -1,13 +1,14 @@
+<app-header></app-header>
 
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col">
 <br><br>
-<div class="spinner-border text-success" role="status" *ngIf="!assignmentTransmis.imageMat">
+<!-- <div class="spinner-border text-success" role="status" *ngIf="!assignmentTransmis.imageMat">
   <span class="visually-hidden"></span>
-</div>
+</div> -->
       <!-- Copy the content below until next comment -->
-      <div class="card card-custom bg-white border-white border-0" *ngIf="assignmentTransmis.imageMat">
+      <div class="card card-custom bg-white border-white border-0"  *ngIf="assignmentTransmis.imageMat">
         <div class="card-custom-img" style="background-image: url({{assignmentTransmis.imageMat}}); background-size: cover;"></div>
         <div class="card-custom-avatar">
           <img class="img-fluid" src="{{assignmentTransmis.imageProf}}" alt="Avatar" />

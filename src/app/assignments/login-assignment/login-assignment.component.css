@@ -1,9 +1,20 @@
 .form {
   display: flex;
   flex-direction: column;
-  margin: 5px;
+  margin-top: 45px;
 }
 /*.fond{
   background-image: url('/assets/images/imgFond.jpg');
 
 }*/
+.fond
+
+{
+  margin-top: 55px;
+}
+
+.fond h1
+
+{
+text-align: center;
+}
