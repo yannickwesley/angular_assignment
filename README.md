@@ -55,3 +55,5 @@ Il s'agit de donner pour chaque matière :
 ### - le nombre de personnes ayant eu la moyenne dans la matière
 ### - le nombre de personnes n'ayant pas eu la moyenne dans la matière
 
+# 8. mettre en place un loader pour le chargement des données
+
