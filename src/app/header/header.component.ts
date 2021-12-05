@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor(private routes: Router,
     private authService:AuthService,
     private assignmentsService:AssignmentsService) { }
-    titre = 'Apllication de Gestion des Devoirs';
+    titre = 'Application de Gestion des Devoirs';
     Rendu = true;
     NonRendu = false;
     stat = false;
